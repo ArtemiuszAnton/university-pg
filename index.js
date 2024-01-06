@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 const { app } = require('./src/app');
 
-app.listen(3001, () => {
-    console.log('Server is run');
-})
+app.listen(process.env.PORT, () => {
+  console.log('Server is run');
+});
