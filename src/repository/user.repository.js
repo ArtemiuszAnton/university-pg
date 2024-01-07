@@ -39,7 +39,6 @@ async function deleteUserByIdDB(users_infoId) {
   const client = await pool.connect();
   const sql = 'DELETE FROM users_info WHERE id = $1 RETURNING *';
   const { rows } = await client.query(sql, [users_infoId]);
-
   return rows;
 }
 
