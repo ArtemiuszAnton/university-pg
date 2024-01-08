@@ -1,6 +1,7 @@
 const express = require('express');
 const { createUser, getAllUsers, updateUsersById, deleteUserById, getUserById } = require('../service/user.service');
 const { isValidUserId } = require('../helper/validation');
+
 const route = express.Router();
 
 route.post('/', async (req, res) => {
