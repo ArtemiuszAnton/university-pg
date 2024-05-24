@@ -4,10 +4,8 @@ async function createUserDB(name, surname, birth, city, age) {
   const client = await pool.connect();
   const sql_1 = 'INSERT INTO users_info (birth, city, age) VALUES ($1, $2, $3) RETURNING *';
   const { rows } = await client.query(sql_1, [birth, city, age]);
-  console.log(rows);
   const sql_2 = 'INSERT INTO users (name, surname, info_id) VALUES ($1, $2, $3) RETURNING *';
   const { rows: rows_2 } = await client.query(sql_2, [name, surname, rows[0].id]);
-  console.log(rows_2);
   return { ...rows_2[0], ...rows[0] };
 }
 
